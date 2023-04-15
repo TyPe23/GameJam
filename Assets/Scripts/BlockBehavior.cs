@@ -10,15 +10,11 @@ public class BlockBehavior : MonoBehaviour
     public Transform player;
     private Rigidbody rb;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>(); 
-    }
-
     private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.CompareTag("ice") && gameObject.CompareTag("basicBlock"))
         {
+            rb = GetComponent<Rigidbody>();
             Vector3 dir = (transform.position - player.position);
             dir.y = 0;
             rb.AddForce(dir * 200);

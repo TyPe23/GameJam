@@ -8,6 +8,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     public Transform target;
     public HealthController healthCon;
+    private Rigidbody rb;
     private bool halt;
     private bool stun;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -15,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -23,7 +25,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             agent.velocity = new Vector3(0, 0, 0);
         }
-        if(healthCon.health != 0)
+        else if(healthCon.health != 0)
         {
             agent.SetDestination(target.position);
         }
@@ -36,19 +38,22 @@ public class EnemyBehavior : MonoBehaviour
     public async void Halt()
     {
         halt = true;
-        agent.updateRotation = false;
         if (stun)
         {
+            await Task.Delay(200);
+            rb.isKinematic = true;
+            rb.isKinematic = false;
             stun = false;
-            await Task.Delay(1500);
+            await Task.Delay(1000);
+            agent.enabled = true;
         }
         else
         {
             await Task.Delay(500);
         }
-        if(healthCon.health != 0)
+        if (healthCon.health == 0)
         {
-            agent.updateRotation = true;
+            agent.enabled = false;
         }
         halt = false;
     }
@@ -57,24 +62,29 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(col.gameObject.CompareTag("attack"))
         {
+            agent.enabled = false;
             stun = true;
-            Vector3 dir = (transform.position - col.transform.position);
+            Vector3 dir = (transform.position - target.position);
             dir.y = 0;
             dir.Normalize();
+            rb.AddForce(dir * 400);
             Halt();
-            transform.Translate(dir * -3);
         }
         if(col.gameObject.CompareTag("fire"))
         {
             // burn
+            Destroy(gameObject); // temp
         }
         if(col.gameObject.CompareTag("ice"))
         {
-            // stop moving
+            agent.enabled = false;
+            halt = true;
             // change render to frozen block
-            // enable block behavior script
-            // change tag to basicBlock
-            // disable this script
+            BlockBehavior block = gameObject.GetComponent<BlockBehavior>();
+            EnemyBehavior enemy = gameObject.GetComponent<EnemyBehavior>();
+            gameObject.tag = "basicBlock";
+            block.enabled = true;
+            enemy.enabled = false;
         }
     }
 }
