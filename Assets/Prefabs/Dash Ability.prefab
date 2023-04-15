@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3519755467346974400}
   - component: {fileID: 3519755467346974412}
   m_Layer: 0
-  m_Name: Ability
+  m_Name: Dash Ability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be6dcc159b31a041af6fc30e7404e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash: 0
+  dash: 1
   player: {fileID: 0}

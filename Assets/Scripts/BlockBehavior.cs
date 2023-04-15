@@ -7,13 +7,20 @@ using UnityEngine;
 public class BlockBehavior : MonoBehaviour
 {
     private bool isMoving, isBurning, isFrozen, hasPushed, hasShattered;
+    public Transform player;
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>(); 
+    }
 
     void FixedUpdate()
     {
         if(isMoving)
         {
             // dependent on player orientation
-            gameObject.transform.Translate(Vector3.left * 0.5f);
+            //gameObject.transform.Translate((transform.position - player.position) * 0.05f);
         }
         if(isBurning)
         {
@@ -27,17 +34,20 @@ public class BlockBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("basicPunch") && gameObject.CompareTag("basicBlock") && !hasPushed)
+        if(col.gameObject.CompareTag("attack") && gameObject.CompareTag("basicBlock") && !hasPushed)
         {
-            isMoving = true;
-            hasPushed = true;
+            //isMoving = true;
+            //hasPushed = true;
+            Vector3 dir = (transform.position - player.position);
+            dir.y = 0;
+            rb.AddForce(dir * 200);
         }
-        else if(col.gameObject.CompareTag("firePunch") && gameObject.CompareTag("vines") && !isBurning)
+        else if(col.gameObject.CompareTag("fire") && gameObject.CompareTag("vines") && !isBurning)
         {
             isBurning = true;
             Burn();
         }
-        else if(col.gameObject.CompareTag("icePunch") && gameObject.CompareTag("heavyBlock") && !hasShattered)
+        else if(col.gameObject.CompareTag("ice") && gameObject.CompareTag("heavyBlock") && !hasShattered)
         {
             if(isFrozen)
             {
@@ -51,13 +61,13 @@ public class BlockBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.CompareTag("wall"))
-        {
-            isMoving = false;
-        }
-    }
+    //private void OnCollisionEnter(Collision col)
+    //{
+    //    if (col.gameObject.CompareTag("wall"))
+    //    {
+    //        isMoving = false;
+    //    }
+    //}
 
     private async void Burn()
     {

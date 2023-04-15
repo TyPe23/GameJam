@@ -5,16 +5,24 @@ using UnityEngine;
 
 public class abilityPickup : MonoBehaviour
 {
-    public bool dash;
+    public abilities ability;
     public ThirdPersonController player;
 
     private void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         if (other.CompareTag("Player"))
         {
-            player._dash = dash;
-            player._attack = !dash;
+            player.ability = ability;
             Destroy(gameObject);
         }
     }
+}
+
+public enum abilities
+{
+    dash,
+    ice,
+    fire,
+    attack,
 }
