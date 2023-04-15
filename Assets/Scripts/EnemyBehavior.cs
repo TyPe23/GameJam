@@ -83,6 +83,7 @@ public class EnemyBehavior : MonoBehaviour
             BlockBehavior block = gameObject.GetComponent<BlockBehavior>();
             EnemyBehavior enemy = gameObject.GetComponent<EnemyBehavior>();
             gameObject.tag = "basicBlock";
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             block.enabled = true;
             enemy.enabled = false;
         }
