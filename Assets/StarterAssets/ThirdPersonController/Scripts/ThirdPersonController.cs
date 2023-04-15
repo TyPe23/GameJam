@@ -298,7 +298,7 @@ namespace StarterAssets
                     // dash
                     if (_input.ability && _dashTimeoutDelta <= 0.0f)
                     {
-                        _controller.Move(targetDirection.normalized);
+                        _controller.Move(targetDirection.normalized / 5);
 
                         // update animator if using character
                         if (_hasAnimator)
