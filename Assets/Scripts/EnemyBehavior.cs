@@ -52,7 +52,7 @@ public class EnemyBehavior : MonoBehaviour
             dir.y = 0;
             dir.Normalize();
             Halt();
-            transform.Translate(dir);
+            transform.Translate(dir * -5);
         }
         if(col.gameObject.CompareTag("fire"))
         {
