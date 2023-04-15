@@ -12,19 +12,23 @@ public class BlockBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("ice") && gameObject.CompareTag("basicBlock"))
+        if (col.gameObject.CompareTag("ice") && gameObject.CompareTag("basicBlock"))
         {
             rb = GetComponent<Rigidbody>();
             Vector3 dir = (transform.position - player.position);
             dir.y = 0;
             rb.AddForce(dir * 200);
         }
-        else if(col.gameObject.CompareTag("fire") && gameObject.CompareTag("vines") && !isBurning)
+        else if (col.gameObject.CompareTag("ice") && gameObject.CompareTag("enemy"))
+        {
+            ChangeTag();
+        }
+        else if (col.gameObject.CompareTag("fire") && gameObject.CompareTag("vines") && !isBurning)
         {
             isBurning = true;
             Burn();
         }
-        else if(col.gameObject.CompareTag("attack") && gameObject.CompareTag("heavyBlock"))
+        else if (col.gameObject.CompareTag("attack") && gameObject.CompareTag("heavyBlock"))
         {
             // particles
             Destroy(gameObject);
@@ -37,5 +41,10 @@ public class BlockBehavior : MonoBehaviour
         await Task.Delay(500);
         // particles off
         Destroy(gameObject);
+    }
+    private async void ChangeTag()
+    {
+        await Task.Delay(300);
+        gameObject.tag = "basicBlock";
     }
 }

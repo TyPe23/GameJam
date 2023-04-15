@@ -1310,7 +1310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e82c27b4223bc94f80b0136e851ebbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spikeHB: {fileID: 17616181}
 --- !u!65 &1730785031
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1680,6 +1679,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1194265189}
+    - target: {fileID: 6546881348321260000, guid: 88840ae746ffa7e4bb9190578a5125cf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6546881348321260001, guid: 88840ae746ffa7e4bb9190578a5125cf,
         type: 3}
       propertyPath: target
@@ -1690,6 +1694,11 @@ PrefabInstance:
       propertyPath: healthCon
       value: 
       objectReference: {fileID: 1194265181}
+    - target: {fileID: 6546881348321260001, guid: 88840ae746ffa7e4bb9190578a5125cf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6546881348321260014, guid: 88840ae746ffa7e4bb9190578a5125cf,
         type: 3}
       propertyPath: m_RootOrder

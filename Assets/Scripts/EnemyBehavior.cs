@@ -9,8 +9,8 @@ public class EnemyBehavior : MonoBehaviour
     public Transform target;
     public HealthController healthCon;
     private Rigidbody rb;
-    private bool halt;
-    private bool stun;
+    private bool halt, stun, burn;
+    private int mult = 1;
     private UnityEngine.AI.NavMeshAgent agent;
 
     void Start()
@@ -21,18 +21,30 @@ public class EnemyBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(halt)
+        if (halt)
         {
             agent.velocity = new Vector3(0, 0, 0);
         }
-        else if(healthCon.health != 0)
+        else if (burn)
         {
+            Invoke(nameof(Run), UnityEngine.Random.Range(1, 3));
+        }
+        else if (healthCon.health != 0)
+        {
+            agent.speed = 3.5f;
             agent.SetDestination(target.position);
         }
         else
         {
             halt = true;
         }
+    }
+
+    void Run()
+    {
+        Vector3 runTo = transform.position + ((transform.position - target.position + new Vector3(UnityEngine.Random.Range(-12, 12), 0, UnityEngine.Random.Range(-15, 12)) * mult));
+        agent.speed = UnityEngine.Random.Range(3.5f, 7f);
+        agent.SetDestination(runTo);
     }
 
     public async void Halt()
@@ -60,7 +72,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("attack"))
+        if(col.gameObject.CompareTag("attack") && !stun)
         {
             agent.enabled = false;
             stun = true;
@@ -70,10 +82,12 @@ public class EnemyBehavior : MonoBehaviour
             rb.AddForce(dir * 400);
             Halt();
         }
-        if(col.gameObject.CompareTag("fire"))
+        if(col.gameObject.CompareTag("fire") && !burn)
         {
-            // burn
-            Destroy(gameObject); // temp
+            agent.velocity = new Vector3(0, 0, 0);
+            Invoke(nameof(Run), 0.1f);
+            burn = true;
+            StopBurning();
         }
         if(col.gameObject.CompareTag("ice"))
         {
@@ -82,10 +96,14 @@ public class EnemyBehavior : MonoBehaviour
             // change render to frozen block
             BlockBehavior block = gameObject.GetComponent<BlockBehavior>();
             EnemyBehavior enemy = gameObject.GetComponent<EnemyBehavior>();
-            gameObject.tag = "basicBlock";
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            block.enabled = true;
             enemy.enabled = false;
         }
+    }
+
+    private async void StopBurning()
+    {
+        await Task.Delay(5000);
+        burn = false;
     }
 }
