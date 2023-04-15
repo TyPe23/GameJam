@@ -23,11 +23,6 @@ public class BlockBehavior : MonoBehaviour
         {
             ChangeTag();
         }
-        else if (col.gameObject.CompareTag("fire") && gameObject.CompareTag("vines") && !isBurning)
-        {
-            isBurning = true;
-            Burn();
-        }
         else if (col.gameObject.CompareTag("attack") && gameObject.CompareTag("heavyBlock"))
         {
             // particles
@@ -35,13 +30,6 @@ public class BlockBehavior : MonoBehaviour
         }
     }
 
-    private async void Burn()
-    {
-        // particles on
-        await Task.Delay(500);
-        // particles off
-        Destroy(gameObject);
-    }
     private async void ChangeTag()
     {
         await Task.Delay(300);
