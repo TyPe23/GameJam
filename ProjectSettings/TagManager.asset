@@ -17,6 +17,7 @@ TagManager:
   - spikesHB
   - icePunch
   - attackPos
+  - checkpoint
   layers:
   - Default
   - TransparentFX

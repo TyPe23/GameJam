@@ -10,10 +10,12 @@ public class HealthController : MonoBehaviour
     public int health = 3;
     private ThirdPersonController charCon;
     private bool invul;
+    private respawns spawns;
 
     private void Start()
     {
         charCon = GetComponent<ThirdPersonController>();
+        spawns = GetComponent<respawns>();
     }
 
     void Update()
@@ -41,10 +43,11 @@ public class HealthController : MonoBehaviour
 
             charCon.enabled = false;
 
-            Vector3 dir = (transform.position - col.transform.position);
-            dir.y = 0;
-            dir.Normalize();
-            transform.Translate(dir);
+            //Vector3 dir = (transform.position - col.transform.position);
+            //dir.y = 0;
+            //dir.Normalize();
+            //transform.Translate(dir);
+            spawns.respawn();
 
             StartCoroutine(Wait());
             StartCoroutine(IFrames());
