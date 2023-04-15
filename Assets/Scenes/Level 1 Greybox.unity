@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: c1cb5a549b7e63049a4d0a1dd638e346, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ee330d4d75930b34496f1dcdadb29f31, type: 2}
 --- !u!1001 &19365647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -531,6 +531,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.576
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606703495886496347, guid: 1f9d7f78014b4e7409e8cdc59af44825,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2606703496328497610, guid: 1f9d7f78014b4e7409e8cdc59af44825,
         type: 3}
@@ -1173,6 +1178,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1952447852}
   - {fileID: 184404180}
   - {fileID: 4157136460727254321}
   - {fileID: 6294200337902243052}
@@ -1182,7 +1188,6 @@ Transform:
   - {fileID: 202782222}
   - {fileID: 441188791}
   - {fileID: 1766343533}
-  - {fileID: 1952447852}
   - {fileID: 19365648}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -8572,7 +8577,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 236153699}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970307496
 GameObject:
