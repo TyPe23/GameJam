@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+public class ExitLogic : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collision)
     {
