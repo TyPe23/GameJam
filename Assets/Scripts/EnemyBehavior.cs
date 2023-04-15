@@ -46,13 +46,25 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("attack") || col.gameObject.CompareTag("fire") || col.gameObject.CompareTag("ice"))
+        if(col.gameObject.CompareTag("attack"))
         {
             Vector3 dir = (transform.position - col.transform.position);
             dir.y = 0;
             dir.Normalize();
             Halt();
             transform.Translate(dir);
+        }
+        if(col.gameObject.CompareTag("fire"))
+        {
+            // burn
+        }
+        if(col.gameObject.CompareTag("ice"))
+        {
+            // stop moving
+            // change render to frozen block
+            // enable block behavior script
+            // change tag to basicBlock
+            // disable this script
         }
     }
 }
