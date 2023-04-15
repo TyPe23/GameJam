@@ -21,6 +21,7 @@ public class abilityPickup : MonoBehaviour
 
 public enum abilities
 {
+    none,
     dash,
     ice,
     fire,

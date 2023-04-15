@@ -27,8 +27,10 @@ public class HealthController : MonoBehaviour
 
     private async void OnTriggerEnter(Collider col)
     {
+        print(col.name);
         if (col.gameObject.CompareTag("spikes") && !invul)
         {
+            print("Spikes!");
             SpikeBehavior spikes = col.gameObject.GetComponent<SpikeBehavior>();
             spikes.ActiveSpike();
         }

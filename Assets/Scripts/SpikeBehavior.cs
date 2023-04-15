@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class SpikeBehavior : MonoBehaviour
 {
-    public BoxCollider spikeHB;
+    public GameObject spikeHB;
 
     public async void ActiveSpike()
     {
+        await Task.Delay(100);
+        spikeHB.SetActive(true);
         await Task.Delay(1000);
-        spikeHB.enabled = true;
-        await Task.Delay(1000);
-        spikeHB.enabled = false;
+        spikeHB.SetActive(false);
     }
 }
