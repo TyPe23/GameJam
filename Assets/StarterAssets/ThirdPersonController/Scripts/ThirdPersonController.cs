@@ -88,12 +88,9 @@ namespace StarterAssets
         private float _animationBlend;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
-        private float _dashVelocity;
-        private float _terminalVelocity = 53.0f;
         private Vector3 targetDirection;
         public abilities ability;
         public GameObject hitbox;
-        public GameObject playerParent;
 
         // timeout deltatime
         private float _dashTimeoutDelta;
@@ -333,7 +330,6 @@ namespace StarterAssets
                     {
                         hitbox.gameObject.tag = "ice";
                     }
-                    print(ability);
 
                     // update animator if using character
                     if (_hasAnimator)
