@@ -7,7 +7,7 @@ using StarterAssets;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] private int health = 3;
+    public int health = 3;
     private ThirdPersonController charCon;
     private bool invul;
 
@@ -25,7 +25,7 @@ public class HealthController : MonoBehaviour
         }
     }
 
-    private async void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.CompareTag("spikes") && !invul)
         {
@@ -52,9 +52,13 @@ public class HealthController : MonoBehaviour
             invul = true;
             EnemyBehavior enemy = col.gameObject.GetComponent<EnemyBehavior>();
             enemy.Halt();
-            Rigidbody rb = col.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(rb.velocity * -5, ForceMode.Impulse);
-            await Task.Delay(10);
+            if (health != 1)
+            {
+                Vector3 dir = (transform.position - col.transform.position);
+                dir.y = 0;
+                dir.Normalize();
+                col.transform.Translate(dir * 3);
+            }
             health -= 1;
             StartCoroutine(IFrames());
         }
