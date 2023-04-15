@@ -47,7 +47,6 @@ public class HealthController : MonoBehaviour
             //dir.y = 0;
             //dir.Normalize();
             //transform.Translate(dir);
-            spawns.respawn();
 
             StartCoroutine(Wait());
             StartCoroutine(IFrames());
@@ -72,6 +71,7 @@ public class HealthController : MonoBehaviour
     private IEnumerator IFrames()
     {
         yield return new WaitForSeconds(0.25f);
+        spawns.respawn();
         invul = false;
     }
     private IEnumerator Wait()
