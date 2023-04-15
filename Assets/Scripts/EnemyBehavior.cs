@@ -9,6 +9,7 @@ public class EnemyBehavior : MonoBehaviour
     public Transform target;
     public HealthController healthCon;
     private bool halt;
+    private bool stun;
     private UnityEngine.AI.NavMeshAgent agent;
 
     void Start()
@@ -36,7 +37,15 @@ public class EnemyBehavior : MonoBehaviour
     {
         halt = true;
         agent.updateRotation = false;
-        await Task.Delay(500);
+        if (stun)
+        {
+            stun = false;
+            await Task.Delay(1500);
+        }
+        else
+        {
+            await Task.Delay(500);
+        }
         if(healthCon.health != 0)
         {
             agent.updateRotation = true;
@@ -48,11 +57,12 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(col.gameObject.CompareTag("attack"))
         {
+            stun = true;
             Vector3 dir = (transform.position - col.transform.position);
             dir.y = 0;
             dir.Normalize();
             Halt();
-            transform.Translate(dir * -5);
+            transform.Translate(dir * -3);
         }
         if(col.gameObject.CompareTag("fire"))
         {
