@@ -27,7 +27,12 @@ public class HealthController : MonoBehaviour
 
     private async void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("spikes") && !invul)
+        if (col.gameObject.CompareTag("spikes") && !invul)
+        {
+            SpikeBehavior spikes = col.gameObject.GetComponent<SpikeBehavior>();
+            spikes.ActiveSpike();
+        }
+        if (col.gameObject.CompareTag("spikesHB") && !invul)
         {
             health -= 1;
             invul = true;
@@ -42,7 +47,7 @@ public class HealthController : MonoBehaviour
             StartCoroutine(Wait());
             StartCoroutine(IFrames());
         }
-        if(col.gameObject.CompareTag("enemy") && !invul)
+        if (col.gameObject.CompareTag("enemy") && !invul)
         {
             invul = true;
             EnemyBehavior enemy = col.gameObject.GetComponent<EnemyBehavior>();
