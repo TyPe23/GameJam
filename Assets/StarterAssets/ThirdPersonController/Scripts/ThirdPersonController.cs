@@ -93,6 +93,7 @@ namespace StarterAssets
         private Vector3 targetDirection;
         public abilities ability;
         public GameObject hitbox;
+        public GameObject playerParent;
 
         // timeout deltatime
         private float _dashTimeoutDelta;
@@ -284,13 +285,6 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
-        }
-
-        public void Knockback(Vector3 dir)
-        {
-            dir.y = 0;
-            print(-targetDirection.normalized);
-            _controller.Move(-targetDirection.normalized);
         }
 
         private void Ability()

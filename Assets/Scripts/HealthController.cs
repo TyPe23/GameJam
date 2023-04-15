@@ -29,11 +29,17 @@ public class HealthController : MonoBehaviour
     {
         if(col.gameObject.CompareTag("spikes") && !invul)
         {
-            // knockback
-            //charCon.Knockback((transform.position - col.transform.position));
-            invul = true;
-            charCon.Knockback((col.transform.position - transform.position));
             health -= 1;
+            invul = true;
+
+            charCon.enabled = false;
+
+            Vector3 dir = (transform.position - col.transform.position);
+            dir.y = 0;
+            dir.Normalize();
+            transform.Translate(dir);
+
+            StartCoroutine(Wait());
             StartCoroutine(IFrames());
         }
         if(col.gameObject.CompareTag("enemy") && !invul)
@@ -51,7 +57,12 @@ public class HealthController : MonoBehaviour
 
     private IEnumerator IFrames()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.25f);
         invul = false;
+    }
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        charCon.enabled = true;
     }
 }
