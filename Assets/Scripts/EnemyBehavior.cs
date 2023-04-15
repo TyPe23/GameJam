@@ -43,4 +43,16 @@ public class EnemyBehavior : MonoBehaviour
         }
         halt = false;
     }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.CompareTag("attack") || col.gameObject.CompareTag("fire") || col.gameObject.CompareTag("ice"))
+        {
+            Vector3 dir = (transform.position - col.transform.position);
+            dir.y = 0;
+            dir.Normalize();
+            Halt();
+            transform.Translate(dir);
+        }
+    }
 }
