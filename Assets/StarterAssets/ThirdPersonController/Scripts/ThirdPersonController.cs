@@ -88,8 +88,6 @@ namespace StarterAssets
         private float _animationBlend;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
-        private float _dashVelocity;
-        private float _terminalVelocity = 53.0f;
         private Vector3 targetDirection;
         public abilities ability;
         public GameObject hitbox;
@@ -286,13 +284,6 @@ namespace StarterAssets
             }
         }
 
-        public void Knockback(Vector3 dir)
-        {
-            dir.y = 0;
-            print(-targetDirection.normalized);
-            _controller.Move(-targetDirection.normalized);
-        }
-
         private void Ability()
         {
             if (Grounded)
@@ -339,7 +330,6 @@ namespace StarterAssets
                     {
                         hitbox.gameObject.tag = "ice";
                     }
-                    print(ability);
 
                     // update animator if using character
                     if (_hasAnimator)

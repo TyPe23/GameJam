@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be6dcc159b31a041af6fc30e7404e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: 3
+  ability: 4
   player: {fileID: 0}

@@ -7,7 +7,7 @@ using StarterAssets;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField] private int health = 3;
+    public int health = 3;
     private ThirdPersonController charCon;
     private bool invul;
 
@@ -25,25 +25,42 @@ public class HealthController : MonoBehaviour
         }
     }
 
-    private async void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("spikes") && !invul)
+        print(col.name);
+        if (col.gameObject.CompareTag("spikes") && !invul)
         {
-            // knockback
-            //charCon.Knockback((transform.position - col.transform.position));
-            invul = true;
-            charCon.Knockback((col.transform.position - transform.position));
+            print("Spikes!");
+            SpikeBehavior spikes = col.gameObject.GetComponent<SpikeBehavior>();
+            spikes.ActiveSpike();
+        }
+        if (col.gameObject.CompareTag("spikesHB") && !invul)
+        {
             health -= 1;
+            invul = true;
+
+            charCon.enabled = false;
+
+            Vector3 dir = (transform.position - col.transform.position);
+            dir.y = 0;
+            dir.Normalize();
+            transform.Translate(dir);
+
+            StartCoroutine(Wait());
             StartCoroutine(IFrames());
         }
-        if(col.gameObject.CompareTag("enemy") && !invul)
+        if (col.gameObject.CompareTag("enemy") && !invul)
         {
             invul = true;
             EnemyBehavior enemy = col.gameObject.GetComponent<EnemyBehavior>();
             enemy.Halt();
-            Rigidbody rb = col.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(rb.velocity * -5, ForceMode.Impulse);
-            await Task.Delay(10);
+            if (health != 1)
+            {
+                Vector3 dir = (transform.position - col.transform.position);
+                dir.y = 0;
+                dir.Normalize();
+                col.transform.Translate(dir * 3);
+            }
             health -= 1;
             StartCoroutine(IFrames());
         }
@@ -51,7 +68,12 @@ public class HealthController : MonoBehaviour
 
     private IEnumerator IFrames()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.25f);
         invul = false;
+    }
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        charCon.enabled = true;
     }
 }

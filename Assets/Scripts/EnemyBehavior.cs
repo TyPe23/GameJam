@@ -6,58 +6,65 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    private Rigidbody rb;
-    private bool goRight, goLeft, halt;
+    public Transform target;
+    public HealthController healthCon;
+    private bool halt;
+    private UnityEngine.AI.NavMeshAgent agent;
 
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-        ChangeDirections();
+        agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     void FixedUpdate()
     {
-        if(goRight)
+        if(halt)
         {
-            rb.velocity = new Vector3(5, 0, 0);
+            agent.velocity = new Vector3(0, 0, 0);
         }
-        if(goLeft)
+        if(healthCon.health != 0)
         {
-            rb.velocity = new Vector3(-5, 0, 0);
-        }
-    }
-
-    private async void ChangeDirections()
-    {
-        if(!halt)
-        {
-            goRight = true;
-            await Task.Delay(1000);
-            goRight = false;
+            agent.SetDestination(target.position);
         }
         else
         {
-            await Task.Delay(200);
+            halt = true;
         }
-        if(!halt)
-        {
-            goLeft = true;
-            await Task.Delay(1000);
-            goLeft = false;
-        }
-        else
-        {
-            await Task.Delay(200);
-        }
-        ChangeDirections();
     }
 
     public async void Halt()
     {
         halt = true;
-        goRight = false;
-        goLeft = false;
+        agent.updateRotation = false;
         await Task.Delay(500);
+        if(healthCon.health != 0)
+        {
+            agent.updateRotation = true;
+        }
         halt = false;
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.CompareTag("attack"))
+        {
+            Vector3 dir = (transform.position - col.transform.position);
+            dir.y = 0;
+            dir.Normalize();
+            Halt();
+            transform.Translate(dir);
+        }
+        if(col.gameObject.CompareTag("fire"))
+        {
+            // burn
+        }
+        if(col.gameObject.CompareTag("ice"))
+        {
+            // stop moving
+            // change render to frozen block
+            // enable block behavior script
+            // change tag to basicBlock
+            // disable this script
+        }
     }
 }
