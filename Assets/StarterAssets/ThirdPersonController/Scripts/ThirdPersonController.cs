@@ -41,7 +41,11 @@ namespace StarterAssets
 
         [Space(10)]
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
-        public float AttackTimeout = 0.25f;
+        public float AttackTimeout = 0.5f;
+        
+        [Space(10)]
+        [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
+        public float HitBoxTimeout = 0.25f;
 
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
@@ -93,6 +97,7 @@ namespace StarterAssets
 
         // timeout deltatime
         private float _dashTimeoutDelta;
+        private float _hitboxTimeoutDelta;
         private float _attackTimeoutDelta;
 
         // animation IDs
@@ -333,17 +338,23 @@ namespace StarterAssets
                         {
                             _animator.SetBool(_animIDJump, true);
                         }
+                        _hitboxTimeoutDelta = HitBoxTimeout;
                         _attackTimeoutDelta = AttackTimeout;
                     }
 
-                    // dash timeout
-                    if (_attackTimeoutDelta >= 0.0f)
+                    // hitbox timeout
+                    if (_hitboxTimeoutDelta >= 0.0f)
                     {
-                        _attackTimeoutDelta -= Time.deltaTime;
+                        _hitboxTimeoutDelta -= Time.deltaTime;
                     }
                     else
                     {
                         hitbox.SetActive(false);
+                    }
+
+                    if (_attackTimeoutDelta >= 0.0f)
+                    {
+                        _attackTimeoutDelta -= Time.deltaTime;
                     }
                 }
                 _input.ability = false;
