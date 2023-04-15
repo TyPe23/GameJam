@@ -6,13 +6,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    public Transform checkpoint;
     [SerializeField] private int health = 3;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -27,7 +21,7 @@ public class HealthController : MonoBehaviour
     {
         if(col.gameObject.CompareTag("spikes"))
         {
-            gameObject.transform.position = checkpoint.position;
+            // knockback
             health -= 1;
         }
         if(col.gameObject.CompareTag("enemy"))
