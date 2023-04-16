@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GamePaused = false;
-    public GameObject pauseMenuUI;
+    public GameObject PauseMenuCanvas;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -14,24 +15,36 @@ public class PauseMenu : MonoBehaviour
             if (GamePaused)
             {
                 Resume();
+                Cursor.visible = false;
             }
             else
             {
                 Pause();
+                Cursor.visible = true;
             }
         }
         
     }
-    void Resume()
+    public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        PauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
     }
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        PauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
         GamePaused = true;
+    }
+
+    public void MainMenuButtion() 
+    {
+        SceneManager.LoadScene("Start Scene");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
