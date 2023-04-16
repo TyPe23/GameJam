@@ -229,8 +229,8 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 1
-    - _RimSize: 1.51
-    - _RimSmoothness: 0.5
+    - _RimSize: 4.05
+    - _RimSmoothness: 0.61
     - _RimThresholdOffset: 0.25
     - _Saturation: 2.65
     - _SketchMapScale: 20
@@ -239,7 +239,7 @@ Material:
     - _Specular: 1
     - _SpecularHighlights: 1
     - _SpecularIntensity: 1.42
-    - _SpecularSmoothness: 0
+    - _SpecularSmoothness: 0.01
     - _SpecularThresholdOffset: 0.25
     - _SrcBlend: 1
     - _Stencil: 1
