@@ -148,6 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spikeHB: {fileID: 8455093294584049008}
   spikeDelayms: 60
+  active: 0
+  spikes: {fileID: 3780685775757114867}
 --- !u!82 &-7083135172000861992
 AudioSource:
   m_ObjectHideFlags: 0
@@ -319,7 +321,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8455093294584049008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -438,6 +440,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e0bebdb85abe8d46a7870ff392d245c, type: 3}
+--- !u!1 &3780685775757114867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1420258806364282233, guid: 8e0bebdb85abe8d46a7870ff392d245c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2864980348438667402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7631288768679839335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5631114448337790701, guid: 8e0bebdb85abe8d46a7870ff392d245c,
