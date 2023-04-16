@@ -6,6 +6,7 @@ using UnityEngine;
 public enum SoundType
 {
     ATTACK,
+    ATTACK_PICKUP,
     BG_AUDIO,
     DASH,
     DASH_PICKUP,
@@ -20,6 +21,7 @@ public enum SoundType
     ICE_SLIDE,
     MENUS, PLAYER_DAMAGE,
     PLAYER_FEEDBACK,
+    ROCK_BREAK,
     SPIKE,
     TORCH_LIGHT
 }
@@ -92,6 +94,7 @@ public class AudioManager : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         sounds = new Dictionary<SoundType, SoundCollection>() {
       {SoundType.ATTACK, new SoundCollection("attack") },
+      {SoundType.ATTACK_PICKUP, new SoundCollection("attack_pickup") },
       {SoundType.BG_AUDIO, new SoundCollection("bg_audio") },
       {SoundType.DASH, new SoundCollection("dash") },
       {SoundType.DASH_PICKUP, new SoundCollection("dash_pickup") },
@@ -107,6 +110,7 @@ public class AudioManager : MonoBehaviour
       {SoundType.MENUS, new SoundCollection("menus") },
       {SoundType.PLAYER_DAMAGE, new SoundCollection("player_damage") },
       {SoundType.PLAYER_FEEDBACK, new SoundCollection("player_feedback") },
+      {SoundType.ROCK_BREAK, new SoundCollection("rock_break") },
       {SoundType.SPIKE, new SoundCollection("spike") },
       {SoundType.TORCH_LIGHT, new SoundCollection("torch_light") }
     };
@@ -115,6 +119,26 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(SoundType type, bool allowPitchShift = true, bool allowVolShift = true)
     {
         PlaySound(type, audioSrc, allowPitchShift, allowVolShift);
+    }
+
+    public void PlayOnce(SoundType type, bool allowPitchShift = true, bool allowVolShift = true)
+    {
+        PlayOnce(type, audioSrc);
+    }
+    private void PlayOnce(SoundType type, AudioSource audioSrc)
+    {
+        if (audioSrc == null)
+        {
+            audioSrc = this.audioSrc;
+        }
+        if (sounds.ContainsKey(type) && sounds[type].HasClips)
+        {
+            if (audioSrc.gameObject.activeSelf)
+            {
+                audioSrc.clip = sounds[type].RandomClip();
+                audioSrc.PlayOneShot(audioSrc.clip, 0.01f);
+            }
+        }
     }
 
     private void PlaySound(SoundType type, AudioSource audioSrc, bool allowPitchShift = true, bool allowVolShift = true)

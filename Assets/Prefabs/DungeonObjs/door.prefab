@@ -111,3 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
+  sound: {fileID: 8300000, guid: a7a9e09a243f04d4ab63a8314ad4b871, type: 3}

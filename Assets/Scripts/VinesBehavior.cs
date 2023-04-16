@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VinesBehavior : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         if(col.gameObject.CompareTag("fire"))
         {
