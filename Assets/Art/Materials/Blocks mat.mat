@@ -229,7 +229,7 @@ Material:
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 1
-    - _RimSize: 1
+    - _RimSize: 4.39
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 2.65
@@ -271,7 +271,7 @@ Material:
     - _IridescenceColor: {r: 0.10081878, g: 0.3018868, b: 0.22435385, a: 0.5}
     - _OutlineColor: {r: 1, g: 0, b: 0, a: 1}
     - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.029191865, g: 0.11554888, b: 0.18867922, a: 1}
+    - _RimColor: {r: 0.01370594, g: 0.056972783, b: 0.09433961, a: 1}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 1}
