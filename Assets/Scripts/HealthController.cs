@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using StarterAssets;
 
 public class HealthController : MonoBehaviour
@@ -24,6 +25,7 @@ public class HealthController : MonoBehaviour
         {
             // die
             Destroy(gameObject); // temp
+            SceneManager.LoadScene("End Scene");
         }
     }
 

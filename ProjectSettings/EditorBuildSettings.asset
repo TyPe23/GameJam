@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1 Greybox.unity
     guid: 6903e9a5690fca646ac462a230a03f50
   - enabled: 1
-    path: Assets/Scenes/Test John.unity
-    guid: 378d7b19ff25535419bcd26282e0da6a
-  - enabled: 1
     path: Assets/Scenes/End Scene.unity
     guid: 47f5c3430e3222948a80c496a48aa2b4
   m_configObjects: {}
