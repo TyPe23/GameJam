@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ivy 2
+  m_Name: Ivy 4
   m_Shader: {fileID: 4800000, guid: 733fefdcde0d35f4b822d2935d5a22f4, type: 3}
   m_ValidKeywords:
   - _MK_ALBEDO_MAP
@@ -192,7 +192,7 @@ Material:
     - _DiffuseSmoothness: 0
     - _DiffuseThresholdOffset: 0.25
     - _Dissolve: 2
-    - _DissolveAmount: 0.9619947
+    - _DissolveAmount: 0.7599973
     - _DissolveBorderSize: 0.44
     - _DissolveMapScale: 0.5
     - _DrawnClampMax: 0.75
