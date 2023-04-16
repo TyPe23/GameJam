@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    public GameObject particles;
+    public GameObject iceParticles;
+    public GameObject fire;
     public Transform target;
     public HealthController healthCon;
     private Rigidbody rb;
@@ -87,6 +88,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             agent.velocity = new Vector3(0, 0, 0);
             Invoke(nameof(Run), 0.1f);
+            fire.SetActive(true);
             burn = true;
             StopBurning();
         }
@@ -94,7 +96,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             agent.enabled = false;
             halt = true;
-            particles.SetActive(true);
+            iceParticles.SetActive(true);
             BlockBehavior block = gameObject.GetComponent<BlockBehavior>();
             EnemyBehavior enemy = gameObject.GetComponent<EnemyBehavior>();
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -105,6 +107,7 @@ public class EnemyBehavior : MonoBehaviour
     private async void StopBurning()
     {
         await Task.Delay(5000);
+        fire.SetActive(false);
         burn = false;
     }
 }
