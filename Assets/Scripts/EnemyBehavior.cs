@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    public GameObject iceParticles;
+    public GameObject ice;
     public GameObject fire;
     public Transform target;
     public HealthController healthCon;
@@ -96,7 +96,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             agent.enabled = false;
             halt = true;
-            iceParticles.SetActive(true);
+            ice.SetActive(true);
             BlockBehavior block = gameObject.GetComponent<BlockBehavior>();
             EnemyBehavior enemy = gameObject.GetComponent<EnemyBehavior>();
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
