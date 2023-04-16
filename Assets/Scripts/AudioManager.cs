@@ -6,6 +6,7 @@ using UnityEngine;
 public enum SoundType
 {
     ATTACK,
+    ATTACK_PICKUP,
     BG_AUDIO,
     DASH,
     DASH_PICKUP,
@@ -92,6 +93,7 @@ public class AudioManager : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         sounds = new Dictionary<SoundType, SoundCollection>() {
       {SoundType.ATTACK, new SoundCollection("attack") },
+      {SoundType.ATTACK_PICKUP, new SoundCollection("attack_pickup") },
       {SoundType.BG_AUDIO, new SoundCollection("bg_audio") },
       {SoundType.DASH, new SoundCollection("dash") },
       {SoundType.DASH_PICKUP, new SoundCollection("dash_pickup") },

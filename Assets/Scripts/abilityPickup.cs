@@ -27,7 +27,7 @@ public class abilityPickup : MonoBehaviour
             }
             if (ability == abilities.attack)
             {
-                Game.globalInstance.sndPlayer.PlaySound(SoundType.ATTACK, GetComponent<AudioSource>());
+                Game.globalInstance.sndPlayer.PlaySound(SoundType.ATTACK_PICKUP, GetComponent<AudioSource>());
             }
 
             Destroy(gameObject);
