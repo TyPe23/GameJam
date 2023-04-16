@@ -16,11 +16,13 @@ public class PauseMenu : MonoBehaviour
             {
                 Resume();
                 Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 Pause();
                 Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
             }
         }
         
@@ -40,6 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenuButtion() 
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Start Scene");
     }
 
