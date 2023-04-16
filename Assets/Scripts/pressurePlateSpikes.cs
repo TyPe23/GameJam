@@ -26,6 +26,7 @@ public class pressurePlateSpikes : MonoBehaviour
             {
                 spike.enabled = false;
             }
+            Game.globalInstance.sndPlayer.PlaySound(SoundType.PLAYER_FEEDBACK, GetComponent<AudioSource>());
         }
     }
 

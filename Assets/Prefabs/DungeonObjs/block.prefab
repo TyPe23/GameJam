@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3347117857092130988}
   m_Layer: 0
   m_Name: block
-  m_TagString: basicBlock
+  m_TagString: heavyBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa787c0e3574664c8e1f8b556ee04f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 0}
+  dustParticles: {fileID: 6896051885266026789, guid: 1783032dc081a374dbf5a127de48ceaf,
+    type: 3}
+  iceTrail: {fileID: 2198757415526614115, guid: 9b8292c9844b84d4eacec360b9094829,
+    type: 3}
   player: {fileID: 0}
 --- !u!54 &225057464559861758
 Rigidbody:
