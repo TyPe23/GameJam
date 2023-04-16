@@ -9,6 +9,7 @@ public class forcePlayerMove : MonoBehaviour
     private CharacterController charCon;
     private Animator Animator;
     private ThirdPersonController TPCon;
+    public Vector3 dir;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class forcePlayerMove : MonoBehaviour
     {
         if (forceMove)
         {
-            charCon.Move(Vector3.left * TPCon.SprintSpeed * Time.deltaTime);
+            charCon.Move(dir * TPCon.SprintSpeed * Time.deltaTime);
         }
     }
 
