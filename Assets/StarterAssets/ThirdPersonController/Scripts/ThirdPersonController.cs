@@ -100,7 +100,8 @@ namespace StarterAssets
         // animation IDs
         private int _animIDSpeed;
         private int _animIDGrounded;
-        private int _animIDJump;
+        private int Dash;
+        private int Attack;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
@@ -176,7 +177,8 @@ namespace StarterAssets
         {
             _animIDSpeed = Animator.StringToHash("Speed");
             _animIDGrounded = Animator.StringToHash("Grounded");
-            _animIDJump = Animator.StringToHash("Jump");
+            Dash = Animator.StringToHash("Dash");
+            Attack = Animator.StringToHash("Attack");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
@@ -293,7 +295,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, false);
+                        _animator.SetBool(Dash, false);
                         _animator.SetBool(_animIDFreeFall, false);
                     }
 
@@ -306,7 +308,7 @@ namespace StarterAssets
                         // update animator if using character
                         if (_hasAnimator)
                         {
-                            _animator.SetBool(_animIDJump, true);
+                            _animator.SetBool(Dash, true);
                         }
                         _dashTimeoutDelta = DashTimeout;
                     }
@@ -335,7 +337,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, false);
+                        _animator.SetBool(Attack, false);
                         _animator.SetBool(_animIDFreeFall, false);
                     }
 
@@ -359,7 +361,7 @@ namespace StarterAssets
                         // update animator if using character
                         if (_hasAnimator)
                         {
-                            _animator.SetBool(_animIDJump, true);
+                            _animator.SetBool(Attack, true);
                         }
                         _hitboxTimeoutDelta = HitBoxTimeout;
                         _attackTimeoutDelta = AttackTimeout;
