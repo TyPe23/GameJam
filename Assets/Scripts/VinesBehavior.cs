@@ -44,8 +44,15 @@ public class VinesBehavior : MonoBehaviour
     public IEnumerator SetFire()
     {
         lit = true;
-        yield return new WaitForSeconds(2);
         particles.SetActive(true);
+        yield return new WaitForSeconds(2);
         gameObject.tag = "fire";
+        StartCoroutine(PutOut());
+    }
+
+    public IEnumerator PutOut()
+    {
+        yield return new WaitForSeconds(3);
+        particles.SetActive(false);
     }
 }
