@@ -117,6 +117,26 @@ public class AudioManager : MonoBehaviour
         PlaySound(type, audioSrc, allowPitchShift, allowVolShift);
     }
 
+    public void PlayOnce(SoundType type, bool allowPitchShift = true, bool allowVolShift = true)
+    {
+        PlayOnce(type, audioSrc);
+    }
+    private void PlayOnce(SoundType type, AudioSource audioSrc)
+    {
+        if (audioSrc == null)
+        {
+            audioSrc = this.audioSrc;
+        }
+        if (sounds.ContainsKey(type) && sounds[type].HasClips)
+        {
+            if (audioSrc.gameObject.activeSelf)
+            {
+                audioSrc.clip = sounds[type].RandomClip();
+                audioSrc.PlayOneShot(audioSrc.clip, 0.01f);
+            }
+        }
+    }
+
     private void PlaySound(SoundType type, AudioSource audioSrc, bool allowPitchShift = true, bool allowVolShift = true)
     {
         if (audioSrc == null)

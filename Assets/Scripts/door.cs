@@ -23,6 +23,7 @@ public class door : MonoBehaviour
         {
             if (transform.position.y > targetY)
             {
+                Game.globalInstance.sndPlayer.PlayOnce(SoundType.DOOR, GetComponent<AudioSource>());
                 transform.Translate(Vector3.down * Time.deltaTime);
             }
         }
