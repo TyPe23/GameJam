@@ -7,11 +7,12 @@ public class pressurePlateSpikes : MonoBehaviour
     public BoxCollider[] spikes;
     private bool activated = false;
     private float targetY;
+    public GameObject PressurePlate;
 
     // Start is called before the first frame update
     void Start()
     {
-        targetY = transform.position.y - 0.05f;
+        targetY = PressurePlate.transform.position.y - 0.25f;
     }
 
     // Update is called once per frame
@@ -19,9 +20,9 @@ public class pressurePlateSpikes : MonoBehaviour
     {
         if (activated)
         {
-            if (transform.position.y > targetY)
+            if (PressurePlate.transform.position.y > targetY)
             {
-                transform.Translate(Vector3.down * Time.deltaTime * 0.5f);
+                PressurePlate.transform.Translate(Vector3.down * Time.deltaTime);
             }
         }
     }
