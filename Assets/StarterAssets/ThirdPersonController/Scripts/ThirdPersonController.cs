@@ -301,6 +301,7 @@ namespace StarterAssets
                     if (_input.ability && _dashTimeoutDelta <= 0.0f)
                     {
                         _controller.Move(targetDirection.normalized / 5);
+                        Game.globalInstance.sndPlayer.PlaySound(SoundType.DASH, GetComponent<AudioSource>());
 
                         // update animator if using character
                         if (_hasAnimator)
