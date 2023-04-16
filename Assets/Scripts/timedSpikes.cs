@@ -7,11 +7,14 @@ public class timedSpikes : MonoBehaviour
     private bool active;
     public GameObject spikeHB;
     private bool flipped;
+    public GameObject spikes;
+    private Transform origPos;
 
     // Start is called before the first frame update
     void Start()
     {
         active = true;
+        origPos = spikes.transform;
     }
 
     // Update is called once per frame
@@ -22,6 +25,7 @@ public class timedSpikes : MonoBehaviour
             if (!flipped)
             {
                 spikeHB.SetActive(true);
+                spikes.transform.position = origPos.position + new Vector3(0, 0.5f, 0);
                 StartCoroutine(flip());
             }
         }
@@ -30,6 +34,7 @@ public class timedSpikes : MonoBehaviour
             if (!flipped)
             {
                 spikeHB.SetActive(false);
+                spikes.transform.position = origPos.position - new Vector3(0, 0.5f, 0);
                 StartCoroutine(flip());
             }
         }

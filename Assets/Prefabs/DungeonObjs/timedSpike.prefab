@@ -62,7 +62,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647350475361300565}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spikeHB: {fileID: 647350475361300565}
+  spikes: {fileID: 1420258807069012383}
 --- !u!1 &7351489007717748254
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +510,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e0bebdb85abe8d46a7870ff392d245c, type: 3}
+--- !u!1 &1420258807069012383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1420258806364282233, guid: 8e0bebdb85abe8d46a7870ff392d245c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1040280806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5631114447297645067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5631114448337790701, guid: 8e0bebdb85abe8d46a7870ff392d245c,
