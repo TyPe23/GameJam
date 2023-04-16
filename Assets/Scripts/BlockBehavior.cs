@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour
 {
-    private bool isBurning;
     public Transform player;
     private Rigidbody rb;
 
