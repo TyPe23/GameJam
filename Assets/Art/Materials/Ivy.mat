@@ -11,16 +11,18 @@ Material:
   m_Shader: {fileID: 4800000, guid: 733fefdcde0d35f4b822d2935d5a22f4, type: 3}
   m_ValidKeywords:
   - _MK_ALBEDO_MAP
+  - _MK_ALPHA_CLIPPING
   - _MK_ARTISTIC_ANIMATION_STUTTER
+  - _MK_DISSOLVE_BORDER_COLOR
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
   - _MK_LIGHT_BANDED
   - _MK_NORMAL_MAP
   - _MK_RECEIVE_SHADOWS
-  - _MK_RIM_DEFAULT
   - _MK_SPECULAR_ISOTROPIC
   - _MK_SURFACE_TYPE_TRANSPARENT
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
+  - _ALPHACLIPPING_ON
   - _MK_OUTLINE_HULL_CLIP
   - _MK_OUTLINE_NOISE
   - _MK_PBS_MAP_0
@@ -71,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DissolveMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 230c2b4726aae5644aa4e14a2c0a908e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DrawnMap:
@@ -167,8 +169,8 @@ Material:
     - _AdvancedTab: 0
     - _AlbedoMapIntensity: 1
     - _AlphaClip: 0
-    - _AlphaClipping: 0
-    - _AlphaCutoff: 0.5
+    - _AlphaClipping: 1
+    - _AlphaCutoff: 1
     - _Artistic: 0
     - _ArtisticFrequency: 2.7
     - _ArtisticProjection: 0
@@ -184,15 +186,15 @@ Material:
     - _ColorGrading: 0
     - _Contrast: 1
     - _Cull: 2
-    - _Cutoff: 0.5
+    - _Cutoff: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DiffuseSmoothness: 0
     - _DiffuseThresholdOffset: 0.25
-    - _Dissolve: 0
-    - _DissolveAmount: 0.5
-    - _DissolveBorderSize: 0.25
-    - _DissolveMapScale: 1
+    - _Dissolve: 2
+    - _DissolveAmount: 0
+    - _DissolveBorderSize: 0.44
+    - _DissolveMapScale: 0.5
     - _DrawnClampMax: 0.75
     - _DrawnClampMin: 0.35
     - _DrawnMapScale: 20
@@ -215,7 +217,7 @@ Material:
     - _LightBandsScale: 0.21
     - _LightThreshold: 0.42
     - _Metallic: 0
-    - _NormalMapIntensity: 1
+    - _NormalMapIntensity: 0.5
     - _OcclusionStrength: 1
     - _OptionsTab: 1
     - _Outline: 3
@@ -230,8 +232,8 @@ Material:
     - _ReceiveShadows: 1
     - _RenderFace: 2
     - _RenderPriority: 0
-    - _Rim: 1
-    - _RimSize: 4.39
+    - _Rim: 0
+    - _RimSize: 1.87
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
     - _Saturation: 2.65
@@ -266,14 +268,14 @@ Material:
     - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
+    - _DissolveBorderColor: {r: 4.776, g: 0.29510024, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GoochDarkColor: {r: 0.2264151, g: 0.11000357, b: 0.11000357, a: 1}
     - _IridescenceColor: {r: 0.10081878, g: 0.3018868, b: 0.22435385, a: 0.5}
     - _OutlineColor: {r: 1, g: 0, b: 0, a: 1}
     - _RimBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.10998575, g: 0.3490566, b: 0.23070288, a: 1}
+    - _RimColor: {r: 0.043574207, g: 0.3207547, b: 0.19430916, a: 1}
     - _RimDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 1}
