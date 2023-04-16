@@ -7,6 +7,7 @@ using UnityEngine;
 public class BlockBehavior : MonoBehaviour
 {
     public GameObject dustParticles;
+    public GameObject iceTrail;
     public Transform player;
     private Rigidbody rb;
 
@@ -14,6 +15,7 @@ public class BlockBehavior : MonoBehaviour
     {
         if (col.gameObject.CompareTag("ice") && gameObject.CompareTag("basicBlock"))
         {
+            iceTrail.SetActive(true);
             rb = GetComponent<Rigidbody>();
             Vector3 dir = (transform.position - player.position);
             dir.y = 0;

@@ -11,6 +11,7 @@ public class FireActivatedSwitch : MonoBehaviour
     {
         if(col.gameObject.CompareTag("fire"))
         {
+            active = true;
             foreach (door door in doors)
             {
                 door.activated = true;
