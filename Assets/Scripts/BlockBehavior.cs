@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour
 {
+    public GameObject particles;
     public Transform player;
     private Rigidbody rb;
 
@@ -24,7 +25,7 @@ public class BlockBehavior : MonoBehaviour
         }
         else if (col.gameObject.CompareTag("attack") && gameObject.CompareTag("heavyBlock"))
         {
-            // particles
+            particles.SetActive(true);
             Destroy(gameObject);
         }
     }

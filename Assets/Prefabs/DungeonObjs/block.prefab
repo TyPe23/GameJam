@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa787c0e3574664c8e1f8b556ee04f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
   player: {fileID: 0}
 --- !u!54 &225057464559861758
 Rigidbody:
