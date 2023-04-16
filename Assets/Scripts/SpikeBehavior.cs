@@ -13,6 +13,7 @@ public class SpikeBehavior : MonoBehaviour
     {
         await Task.Delay(spikeDelayms);
         spikeHB.SetActive(true);
+        Game.globalInstance.sndPlayer.PlaySound(SoundType.SPIKE, GetComponent<AudioSource>());
         await Task.Delay(1000);
         spikeHB.SetActive(false);
     }
