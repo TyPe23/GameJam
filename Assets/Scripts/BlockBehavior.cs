@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour
 {
-    public GameObject particles;
+    public GameObject dustParticles;
     public Transform player;
     private Rigidbody rb;
 
@@ -27,7 +27,7 @@ public class BlockBehavior : MonoBehaviour
         }
         else if (col.gameObject.CompareTag("attack") && gameObject.CompareTag("heavyBlock"))
         {
-            particles.SetActive(true);
+            dustParticles.SetActive(true);
             Destroy(gameObject);
             Game.globalInstance.sndPlayer.PlaySound(SoundType.ROCK_BREAK, GetComponent<AudioSource>());
         }
