@@ -17,15 +17,15 @@ public class abilityPickup : MonoBehaviour
             if (ability == abilities.dash) {
                 Game.globalInstance.sndPlayer.PlaySound(SoundType.DASH_PICKUP, GetComponent<AudioSource>());
             }
-            else if (ability == abilities.ice)
+            if (ability == abilities.ice)
             {
                 Game.globalInstance.sndPlayer.PlaySound(SoundType.ICE_PICKUP, GetComponent<AudioSource>());
             }
-            else if (ability == abilities.fire)
+            if (ability == abilities.fire)
             {
                 Game.globalInstance.sndPlayer.PlaySound(SoundType.FIRE_PICKUP, GetComponent<AudioSource>());
             }
-            else if (ability == abilities.attack)
+            if (ability == abilities.attack)
             {
                 Game.globalInstance.sndPlayer.PlaySound(SoundType.ATTACK, GetComponent<AudioSource>());
             }

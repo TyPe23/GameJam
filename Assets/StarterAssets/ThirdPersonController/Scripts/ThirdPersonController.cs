@@ -343,6 +343,18 @@ namespace StarterAssets
                     if (_input.ability && _attackTimeoutDelta <= 0.0f)
                     {
                         hitbox.SetActive(true);
+                        if (ability == abilities.ice)
+                        {
+                            Game.globalInstance.sndPlayer.PlaySound(SoundType.ICE_PUNCH, GetComponent<AudioSource>());
+                        }
+                        if (ability == abilities.fire)
+                        {
+                            Game.globalInstance.sndPlayer.PlaySound(SoundType.FIRE_PUNCH, GetComponent<AudioSource>());
+                        }
+                        if (ability == abilities.attack)
+                        {
+                            Game.globalInstance.sndPlayer.PlaySound(SoundType.ATTACK, GetComponent<AudioSource>());
+                        }
 
                         // update animator if using character
                         if (_hasAnimator)
