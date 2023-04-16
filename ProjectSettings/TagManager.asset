@@ -19,6 +19,7 @@ TagManager:
   - attackPos
   - checkpoint
   - forceMove
+  - room
   layers:
   - Default
   - TransparentFX
