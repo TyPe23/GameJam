@@ -300,7 +300,7 @@ namespace StarterAssets
                     // dash
                     if (_input.ability && _dashTimeoutDelta <= 0.0f)
                     {
-                        _controller.Move(targetDirection.normalized / 5);
+                        _controller.Move(targetDirection.normalized * 50 * Time.deltaTime);
                         Game.globalInstance.sndPlayer.PlaySound(SoundType.DASH, GetComponent<AudioSource>());
 
                         // update animator if using character

@@ -4940,8 +4940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1957c05c7bf21f46aba1cc5ebd04da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torchLight: {fileID: 0}
-  particles: {fileID: 0}
+  torchLight: {fileID: 7169972835327964412}
+  particles: {fileID: 7169972834828416469}
 --- !u!1 &7169972835327964412
 GameObject:
   m_ObjectHideFlags: 0
