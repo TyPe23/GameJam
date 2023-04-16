@@ -269,7 +269,7 @@ Material:
     - _Light: 1
     - _LightBands: 4
     - _LightBandsScale: 0.5
-    - _LightThreshold: 0.52
+    - _LightThreshold: 0.47
     - _LightTransmission: 0
     - _LightTransmissionDistortion: 0.25
     - _LightTransmissionIntensity: 1
@@ -298,17 +298,17 @@ Material:
     - _RenderPriority: 0
     - _Rim: 1
     - _RimSize: 1.45
-    - _RimSmoothness: 0.5
+    - _RimSmoothness: 0.78
     - _RimThresholdOffset: 0.25
     - _Roughness: 0.5
     - _Saturation: 1
     - _SketchMapScale: 1
-    - _Smoothness: 0.13
+    - _Smoothness: 0.16
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
     - _SpecularHighlights: 1
     - _SpecularIntensity: 1
-    - _SpecularSmoothness: 0.09
+    - _SpecularSmoothness: 0.28
     - _SpecularThresholdOffset: 0.53
     - _SrcBlend: 1
     - _Stencil: 1
