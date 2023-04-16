@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2606703495034385446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.735012, y: 10.170831, z: -2.4700735}
+  m_LocalPosition: {x: 0, y: 1.238, z: 0.576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -174,17 +174,17 @@ PrefabInstance:
     - target: {fileID: 4961601652600255106, guid: e2ff2a266e528e54ca84a1cc2d989f8c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.735012
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4961601652600255106, guid: e2ff2a266e528e54ca84a1cc2d989f8c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.013831
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4961601652600255106, guid: e2ff2a266e528e54ca84a1cc2d989f8c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.9900734
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4961601652600255106, guid: e2ff2a266e528e54ca84a1cc2d989f8c,
         type: 3}
@@ -262,7 +262,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &2606703495886496344
 MonoBehaviour:
@@ -277,3 +277,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!114 &1722695114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763125771955160658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f01859bc1632b4fb0ba94e1e0544f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {x: 0, y: 0, z: 0}
