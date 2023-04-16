@@ -12,7 +12,7 @@ public class door : MonoBehaviour
     void Start()
     {
         activated = false;
-        targetY = transform.position.y - 1;
+        targetY = transform.position.y - 3;
         origY = transform.position.y;
     }
 
