@@ -7795,6 +7795,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3515bd16c6db147458f277401baeddac, type: 2}
+    - target: {fileID: 1746265970787838698, guid: 42ad94af186b5834d8e0e877dd17c67a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3515bd16c6db147458f277401baeddac, type: 2}
     - target: {fileID: 3690223417583492507, guid: 42ad94af186b5834d8e0e877dd17c67a,
         type: 3}
       propertyPath: m_LocalPosition.x
