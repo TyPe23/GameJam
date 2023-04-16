@@ -21,6 +21,7 @@ public enum SoundType
     ICE_SLIDE,
     MENUS, PLAYER_DAMAGE,
     PLAYER_FEEDBACK,
+    ROCK_BREAK,
     SPIKE,
     TORCH_LIGHT
 }
@@ -109,6 +110,7 @@ public class AudioManager : MonoBehaviour
       {SoundType.MENUS, new SoundCollection("menus") },
       {SoundType.PLAYER_DAMAGE, new SoundCollection("player_damage") },
       {SoundType.PLAYER_FEEDBACK, new SoundCollection("player_feedback") },
+      {SoundType.ROCK_BREAK, new SoundCollection("rock_break") },
       {SoundType.SPIKE, new SoundCollection("spike") },
       {SoundType.TORCH_LIGHT, new SoundCollection("torch_light") }
     };

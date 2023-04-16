@@ -17,15 +17,18 @@ public class BlockBehavior : MonoBehaviour
             Vector3 dir = (transform.position - player.position);
             dir.y = 0;
             rb.AddForce(dir * 200);
+            Game.globalInstance.sndPlayer.PlaySound(SoundType.ICE_SLIDE, GetComponent<AudioSource>());
         }
         else if (col.gameObject.CompareTag("ice") && gameObject.CompareTag("enemy"))
         {
             ChangeTag();
+            Game.globalInstance.sndPlayer.PlaySound(SoundType.ICE_FREEZE, GetComponent<AudioSource>());
         }
         else if (col.gameObject.CompareTag("attack") && gameObject.CompareTag("heavyBlock"))
         {
             // particles
             Destroy(gameObject);
+            Game.globalInstance.sndPlayer.PlaySound(SoundType.ROCK_BREAK, GetComponent<AudioSource>());
         }
     }
 
