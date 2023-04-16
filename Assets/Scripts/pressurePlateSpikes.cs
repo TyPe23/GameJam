@@ -29,14 +29,14 @@ public class pressurePlateSpikes : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("basicBlock"))
-        {
-            foreach (BoxCollider spike in spikes)
-            {
-                spike.enabled = true;
-            }
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("basicBlock"))
+    //    {
+    //        foreach (BoxCollider spike in spikes)
+    //        {
+    //            spike.enabled = true;
+    //        }
+    //    }
+    //}
 }
