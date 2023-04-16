@@ -11,6 +11,7 @@ public class FireActivatedSwitch : MonoBehaviour
     {
         if(col.gameObject.CompareTag("fire"))
         {
+            Game.globalInstance.sndPlayer.PlaySound(SoundType.DOOR, GetComponent<AudioSource>());
             active = true;
             foreach (door door in doors)
             {
