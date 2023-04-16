@@ -45,6 +45,7 @@ public class VinesBehavior : MonoBehaviour
     {
         lit = true;
         particles.SetActive(true);
+        Game.globalInstance.sndPlayer.PlaySound(SoundType.FIRE_BURNING, GetComponent<AudioSource>());
         yield return new WaitForSeconds(2);
         gameObject.tag = "fire";
         StartCoroutine(PutOut());
