@@ -18,6 +18,7 @@ TagManager:
   - icePunch
   - attackPos
   - checkpoint
+  - forceMove
   layers:
   - Default
   - TransparentFX
