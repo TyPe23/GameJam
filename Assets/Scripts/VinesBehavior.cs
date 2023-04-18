@@ -36,6 +36,7 @@ public class VinesBehavior : MonoBehaviour
         {
             if (!lit)
             {
+                lit = true;
                 StartCoroutine(SetFire());
             }
         }

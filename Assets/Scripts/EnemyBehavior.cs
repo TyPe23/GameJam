@@ -86,6 +86,7 @@ public class EnemyBehavior : MonoBehaviour
         }
         if(col.gameObject.CompareTag("fire") && !burn)
         {
+            gameObject.tag = "Untagged";
             agent.velocity = new Vector3(0, 0, 0);
             Invoke(nameof(Run), 0.1f);
             fire.SetActive(true);
@@ -109,5 +110,7 @@ public class EnemyBehavior : MonoBehaviour
         await Task.Delay(5000);
         fire.SetActive(false);
         burn = false;
+        gameObject.tag = "enemy";
+        Destroy(gameObject);
     }
 }
